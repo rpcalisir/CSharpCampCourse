@@ -2,8 +2,8 @@
 
 namespace Northwind.DataAccess.Interface
 {
-    public interface IProductDal : IEntityRepository<Product>
+    public interface ICategoryDal : IEntityRepository<Category>
     {
-        
+
     }
 }

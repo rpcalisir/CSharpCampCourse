@@ -19,11 +19,6 @@ namespace Northwind.WebFormsUI
             ListAllCategories();
         }
 
-        private void cmbSearchCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ListByCategoryId();
-        }
-
         private void ListAllProducts()
         {
             dgwProducts.DataSource = _productOperations.GetAllProducts();
@@ -47,5 +42,9 @@ namespace Northwind.WebFormsUI
             }
         }
 
+        private void cmbSearchCategory_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            ListByCategoryId();
+        }
     }
 }

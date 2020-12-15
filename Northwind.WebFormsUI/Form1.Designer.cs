@@ -62,6 +62,7 @@ namespace Northwind.WebFormsUI
             this.cmbSearchCategory.Name = "cmbSearchCategory";
             this.cmbSearchCategory.Size = new System.Drawing.Size(196, 21);
             this.cmbSearchCategory.TabIndex = 1;
+            this.cmbSearchCategory.SelectedIndexChanged += new System.EventHandler(this.cmbSearchCategory_SelectedIndexChanged_1);
             // 
             // label1
             // 

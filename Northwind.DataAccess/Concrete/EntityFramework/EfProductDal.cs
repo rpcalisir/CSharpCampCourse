@@ -8,24 +8,20 @@ namespace Northwind.DataAccess.Concrete.EntityFramework
 {
     public class EfProductDal : DbContext, IProductDal
     {
-        //public DbSet<Product> Products { get; set; }
-        private IContext _context;
+        private NorthwindContext _context;
 
-        public List<Product> GetAllProducts()
+        public EfProductDal()
+        {
+            _context = new NorthwindContext();
+        }
+        public List<Product> GetAll()
         {
             return FetchProducts().ToList();
         }
-
-        public Product GetProduct(int productId)
+        public Product GetById(int productId)
         {
             return FetchProducts().Where(p => p.ProductId == productId).FirstOrDefault();
         }
-
-        public void AddProduct(Product product)
-        {
-            
-        }
-
         private List<Product> FetchProducts()
         {
             using (_context = new NorthwindContext())
@@ -33,13 +29,17 @@ namespace Northwind.DataAccess.Concrete.EntityFramework
                 return _context.Products.ToList();
             }
         }
-
-        public List<Category> GetAllCategories()
+        public void UpdateInDb(Product product)
         {
-            using (NorthwindContext context = new NorthwindContext())
-            {
-                return context.Categories.ToList();
-            }
+            throw new System.NotImplementedException();
+        }
+        public void DeleteInDb(Product product)
+        {
+            throw new System.NotImplementedException();
+        }
+        public void AddToDb(Product product)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -6,32 +6,37 @@ using System.Linq;
 
 namespace Northwind.DataAccess.Concrete.EntityFramework
 {
-    public class EfCategoryDal : DbContext
+    public class EfCategoryDal : DbContext, ICategoryDal
     {
-        public void AddProduct(Product product)
+        private readonly NorthwindContext _context;
+        public EfCategoryDal()
+        {
+            _context = new NorthwindContext();
+        }
+        public void AddToDb(Category entity)
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Product> FetchProducts()
+        public void DeleteInDb(Category entity)
         {
             throw new System.NotImplementedException();
         }
 
-        public List<Category> GetAllCategories()
+        public List<Category> GetAll()
         {
-            using (NorthwindContext context = new NorthwindContext())
+            using (_context)
             {
-                return context.Categories.ToList();
+                return _context.Categories.ToList();
             }
         }
 
-        public List<Product> GetAllProducts()
+        public Category GetById(int entityId)
         {
             throw new System.NotImplementedException();
         }
 
-        public Product GetProduct(int productId)
+        public void UpdateInDb(Category entity)
         {
             throw new System.NotImplementedException();
         }

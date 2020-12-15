@@ -10,17 +10,12 @@ namespace Northwind.DataAccess.Concrete.NHybernate
 {
     public class NhProductDal : IProductDal
     {
-        public void AddProduct(Product product)
+        public void AddToDb(Product product)
         {
             throw new NotImplementedException();
         }
 
-        public List<Category> GetAllCategories()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Product> GetAllProducts()
+        public List<Product> GetAll()
         {
             List<Product> products = new List<Product>
             {
@@ -38,7 +33,17 @@ namespace Northwind.DataAccess.Concrete.NHybernate
             return products;
         }
 
-        public Product GetProduct(int productId)
+        public Product GetById(int productId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateInDb(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteInDb(Product product)
         {
             throw new NotImplementedException();
         }

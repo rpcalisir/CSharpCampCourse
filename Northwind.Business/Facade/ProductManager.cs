@@ -10,25 +10,27 @@ namespace Northwind.Business.Facade
     public class ProductManager
     {
         private readonly IProductDal _productDal;
+        private readonly ICategoryDal _categoryDal;
 
         public ProductManager()
         {
             _productDal = new EfProductDal();
+            _categoryDal = new EfCategoryDal();
         }
 
         public List<Product> GetAllProducts()
         {
-            return _productDal.GetAllProducts();
+            return _productDal.GetAll();
         }
 
         public List<Category> GetAllCategories()
         {
-            return _productDal.GetAllCategories().ToList();
+            return _categoryDal.GetAll().ToList();
         }
 
         public List<Product> SearchByCategory(int categoryId)
         {
-            return _productDal.GetAllProducts().Where(p => p.CategoryId == categoryId).ToList();
+            return _productDal.GetAll().Where(p => p.CategoryId == categoryId).ToList();
         }
     }
 }
