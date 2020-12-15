@@ -1,13 +1,16 @@
-﻿using Northwind.Entities.Concrete;
+﻿using Northwind.DataAccess.Interface;
+using Northwind.Entities.Concrete;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace Northwind.DataAccess.Concrete
+namespace Northwind.DataAccess.Concrete.EntityFramework
 {
-    public class ProductDal : DbContext
+    public class EfProductDal : DbContext, IProductDal
     {
         //public DbSet<Product> Products { get; set; }
+        private IContext _context;
+
         public List<Product> GetAllProducts()
         {
             return FetchProducts().ToList();
@@ -25,11 +28,18 @@ namespace Northwind.DataAccess.Concrete
 
         private List<Product> FetchProducts()
         {
-            using (NorthwindContext context = new NorthwindContext())
+            using (_context = new NorthwindContext())
             {
-                return context.Products.ToList();
+                return _context.Products.ToList();
             }
         }
 
+        public List<Category> GetAllCategories()
+        {
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                return context.Categories.ToList();
+            }
+        }
     }
 }

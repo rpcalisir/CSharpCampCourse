@@ -1,19 +1,19 @@
-﻿using Northwind.DataAccess.Concrete;
+﻿using Northwind.DataAccess.Concrete.EntityFramework;
+using Northwind.DataAccess.Concrete.NHybernate;
+using Northwind.DataAccess.Interface;
 using Northwind.Entities.Concrete;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Northwind.Business.Concrete
+namespace Northwind.Business.Facade
 {
-    public class ProductOperations
+    public class ProductManager
     {
-        private readonly ProductDal _productDal;
-        private readonly CategoryDal _categoryDal;
+        private readonly IProductDal _productDal;
 
-        public ProductOperations()
+        public ProductManager()
         {
-            _productDal = new ProductDal();
-            _categoryDal = new CategoryDal();
+            _productDal = new EfProductDal();
         }
 
         public List<Product> GetAllProducts()
@@ -23,7 +23,7 @@ namespace Northwind.Business.Concrete
 
         public List<Category> GetAllCategories()
         {
-            return _categoryDal.GetAllCategories().ToList();
+            return _productDal.GetAllCategories().ToList();
         }
 
         public List<Product> SearchByCategory(int categoryId)
