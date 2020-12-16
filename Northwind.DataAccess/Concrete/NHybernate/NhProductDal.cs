@@ -3,6 +3,7 @@ using Northwind.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,12 +11,22 @@ namespace Northwind.DataAccess.Concrete.NHybernate
 {
     public class NhProductDal : IProductDal
     {
-        public void AddToDb(Product product)
+        public void AddToDb(Product entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<Product> GetAll()
+        public void DeleteInDb(Product entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product Get(Expression<Func<Product, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
             List<Product> products = new List<Product>
             {
@@ -33,17 +44,7 @@ namespace Northwind.DataAccess.Concrete.NHybernate
             return products;
         }
 
-        public Product GetById(int productId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateInDb(Product product)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteInDb(Product product)
+        public void UpdateInDb(Product entity)
         {
             throw new NotImplementedException();
         }
