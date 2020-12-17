@@ -1,5 +1,5 @@
 ﻿
-namespace Northwind.WebFormsUI
+namespace Northwind.WebFormsUITwo
 {
     partial class Form1
     {
@@ -45,12 +45,12 @@ namespace Northwind.WebFormsUI
             // 
             this.groupBox1.Controls.Add(this.cmbSearchCategory);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(42, 34);
+            this.groupBox1.Location = new System.Drawing.Point(34, 23);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(734, 97);
-            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search by Category";
             // 
@@ -62,7 +62,7 @@ namespace Northwind.WebFormsUI
             this.cmbSearchCategory.Name = "cmbSearchCategory";
             this.cmbSearchCategory.Size = new System.Drawing.Size(196, 21);
             this.cmbSearchCategory.TabIndex = 1;
-            this.cmbSearchCategory.SelectedIndexChanged += new System.EventHandler(this.cmbSearchCategory_SelectedIndexChanged_1);
+            this.cmbSearchCategory.SelectedIndexChanged += new System.EventHandler(this.cmbSearchCategory_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -88,12 +88,12 @@ namespace Northwind.WebFormsUI
             // 
             this.groupBox2.Controls.Add(this.txtSearchName);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(42, 161);
+            this.groupBox2.Location = new System.Drawing.Point(34, 150);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(734, 92);
-            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search by Product Name";
             // 
@@ -104,29 +104,28 @@ namespace Northwind.WebFormsUI
             this.txtSearchName.Name = "txtSearchName";
             this.txtSearchName.Size = new System.Drawing.Size(196, 20);
             this.txtSearchName.TabIndex = 1;
-            this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
             // 
             // dgwProducts
             // 
             this.dgwProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwProducts.Location = new System.Drawing.Point(42, 290);
+            this.dgwProducts.Location = new System.Drawing.Point(34, 279);
             this.dgwProducts.Margin = new System.Windows.Forms.Padding(2);
             this.dgwProducts.Name = "dgwProducts";
             this.dgwProducts.RowHeadersWidth = 51;
             this.dgwProducts.RowTemplate.Height = 24;
             this.dgwProducts.Size = new System.Drawing.Size(734, 297);
-            this.dgwProducts.TabIndex = 6;
+            this.dgwProducts.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 610);
+            this.ClientSize = new System.Drawing.Size(867, 631);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgwProducts);
             this.Name = "Form1";
-            this.Text = "Products";
+            this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

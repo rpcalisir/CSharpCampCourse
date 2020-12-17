@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{40ADF918-8020-405C-A4B2-A03766294359}</ProjectGuid>
+    <ProjectGuid>{0997979C-9178-486E-982B-10CC8AD76F4A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Northwind.Business</RootNamespace>
-    <AssemblyName>Northwind.Business</AssemblyName>
+    <RootNamespace>Northwind.DataAccessTwo</RootNamespace>
+    <AssemblyName>Northwind.DataAccessTwo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,29 +51,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Facade\CategoryManager.cs" />
-    <Compile Include="Facade\ProductManager.cs" />
-    <Compile Include="Interface\ICategoryManager.cs" />
-    <Compile Include="Interface\IProductManager.cs" />
+    <Compile Include="Abstract\EntityFramework\EfEntityDalBase.cs" />
+    <Compile Include="Interface\ICategoryDal.cs" />
+    <Compile Include="Interface\IEntityDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfProductDal.cs" />
+    <Compile Include="Concrete\EntityFramework\NorthwindContext.cs" />
+    <Compile Include="Interface\IProductDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Northwind.DataAccess\Northwind.DataAccess.csproj">
-      <Project>{d229d0b4-8355-4bf4-b071-537d7d7d547e}</Project>
-      <Name>Northwind.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Northwind.Entities\Northwind.Entities.csproj">
-      <Project>{6ab80276-2804-41f9-96b4-5fb35135484b}</Project>
-      <Name>Northwind.Entities</Name>
+    <ProjectReference Include="..\Northwind.EntitiesTwo\Northwind.EntitiesTwo.csproj">
+      <Project>{3dcc21dd-e204-4a77-8f34-66cb7cbe8634}</Project>
+      <Name>Northwind.EntitiesTwo</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstract\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

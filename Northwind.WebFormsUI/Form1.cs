@@ -1,4 +1,5 @@
 ﻿using Northwind.Business.Facade;
+using Northwind.Business.Interface;
 using System;
 using System.Windows.Forms;
 
@@ -6,11 +7,13 @@ namespace Northwind.WebFormsUI
 {
     public partial class Form1 : Form
     {
-        private readonly ProductManager _productOperations;
+        private readonly IProductManager _productManager;
+        private readonly ICategoryManager _categoryManager;
         public Form1()
         {
             InitializeComponent();
-            _productOperations = new ProductManager();
+            _productManager = new ProductManager();
+            _categoryManager = new CategoryManager();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -21,30 +24,34 @@ namespace Northwind.WebFormsUI
 
         private void ListAllProducts()
         {
-            dgwProducts.DataSource = _productOperations.GetAllProducts();
+            dgwProducts.DataSource = _productManager.GetAllProducts();
         }
 
         private void ListAllCategories()
         {
-            cmbSearchCategory.DataSource = _productOperations.GetAllCategories();
+            cmbSearchCategory.DataSource = _categoryManager.GetAllCategories();
             cmbSearchCategory.DisplayMember = "CategoryName";
             cmbSearchCategory.ValueMember = "CategoryID";
+        }
+        private void cmbSearchCategory_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            ListByCategoryId();
         }
 
         private void ListByCategoryId()
         {
             try
             {
-                dgwProducts.DataSource = _productOperations.SearchByCategory(Convert.ToInt32(cmbSearchCategory.SelectedValue));
+                dgwProducts.DataSource = _productManager.GetProductsByCategory(Convert.ToInt32(cmbSearchCategory.SelectedValue));
             }
             catch
             {
             }
         }
 
-        private void cmbSearchCategory_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void txtSearchName_TextChanged(object sender, EventArgs e)
         {
-            ListByCategoryId();
+            dgwProducts.DataSource = _productManager.GetProductsByName(txtSearchName.Text);
         }
     }
 }
